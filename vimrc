@@ -12,11 +12,13 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'AnsiEsc.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'luochen1990/rainbow'
 Plugin 'mileszs/ack.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'fholgado/minibufexpl.vim'
+Plugin 'ervandew/supertab'
 call vundle#end()
 filetype plugin indent on
 syntax on
@@ -36,6 +38,8 @@ let g:miniBufExplModSelTarget = 1
 colorscheme molokai
 let g:airline_theme='violet'
 
+
+
 let mapleader = ","
 map <space> /
 
@@ -51,6 +55,17 @@ set guioptions-=r
 set guioptions-=R
 set guioptions-=l
 set guioptions-=L
+
+" Omnifunc
+set omnifunc=syntaxcomplete#Complete
+set completeopt+=longest,menuone
+
+let g:SuperTabDefaultCompletionType = "context"
+
+" Menus can use arrows and enter
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
 
 set shiftwidth=4
 set tabstop=4
@@ -78,6 +93,16 @@ set incsearch
 set ignorecase
 set smartcase
 set showmatch
+set shortmess-="fsnxtToOcC"
+" Restore line position after exit
+if has("autocmd")
+    autocmd BufReadPost *
+    \ if line("\'") > 0 && line("\'") <= line("$") |
+        \ exe "normal g`" |
+    \ endif
+endif
+
+set sessionoptions-="help"
 
 set wildmenu
 set wildmode=list:longest
