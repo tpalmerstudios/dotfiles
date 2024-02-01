@@ -13,54 +13,40 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'AnsiEsc.vim'
-Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'luochen1990/rainbow'
 Plugin 'mileszs/ack.vim'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'fholgado/minibufexpl.vim'
 Plugin 'ervandew/supertab'
 call vundle#end()
 filetype plugin indent on
 syntax on
 
-let g:indent_guides_enable_on_vim_startup = 1
 let g:rainbow_active = 1
 let g:ackprg = 'ag --nogroup --nocolor --column'
 let g:airline_powerline_fonts = 1
+let g:SuperTabDefaultCompletionType = "context"
 set background=dark
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
 colorscheme molokai
 let g:airline_theme='violet'
-
-
-
 let mapleader = ","
-map <space> /
 
 set laststatus=2
 set showtabline=2
 set noshowmode
-
 set number
 set cursorline
 set ruler
 set foldcolumn=1
-set guioptions-=r
-set guioptions-=R
-set guioptions-=l
-set guioptions-=L
+set guioptions-=r,R,l,L
 
 " Omnifunc
 set omnifunc=syntaxcomplete#Complete
-set completeopt+=longest,menuone
+set completeopt+=longest,menuone,noselect,noinsert
 
-let g:SuperTabDefaultCompletionType = "context"
+set dictionary+="/usr/share/dict/words"
 
 " Menus can use arrows and enter
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
@@ -89,20 +75,17 @@ set showmode
 set showcmd
 
 set hlsearch
+nnoremap <F3> :nohlsearch<CR>
 set incsearch
 set ignorecase
 set smartcase
 set showmatch
-set shortmess-="fsnxtToOcC"
+"set shortmess-="fsnxtToOcC"
 " Restore line position after exit
-if has("autocmd")
-    autocmd BufReadPost *
-    \ if line("\'") > 0 && line("\'") <= line("$") |
-        \ exe "normal g`" |
-    \ endif
-endif
-
-set sessionoptions-="help"
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
 
 set wildmenu
 set wildmode=list:longest
