@@ -2,7 +2,6 @@ set nocompatible
 set history=200
 set t_Co=256
 
-
 set rtp+=~/.vim/bundle/Vundle.vim
 python3 from powerline.vim import setup as powerline_setup
 python3 powerline_setup()
@@ -45,13 +44,12 @@ set foldcolumn=1
 " Omnifunc
 set omnifunc=syntaxcomplete#Complete
 set completeopt+=longest,menuone,noinsert
-
+let g:SuperTabDefaultCompletionType = "context"
 set dictionary+="/usr/share/dict/words"
 
 " Menus can use arrows and enter
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
 
 set shiftwidth=4
 set tabstop=4
@@ -61,11 +59,10 @@ set si "Smart indent
 set wrap "Wrap lines
 
 try
-	    set undodir=~/.vim/undodir
-		    set undofile
+	set undodir=~/.vim/undodir
+	set undofile
 catch
 endtry
-
 
 set visualbell
 set encoding=utf-8
