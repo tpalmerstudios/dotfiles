@@ -32,6 +32,7 @@ endif
 colorscheme molokai
 let g:airline_theme='violet'
 let mapleader = ","
+map <space> /
 
 set laststatus=2
 set showtabline=2
@@ -40,11 +41,10 @@ set number
 set cursorline
 set ruler
 set foldcolumn=1
-set guioptions-=r,R,l,L
 
 " Omnifunc
 set omnifunc=syntaxcomplete#Complete
-set completeopt+=longest,menuone,noselect,noinsert
+set completeopt+=longest,menuone,noinsert
 
 set dictionary+="/usr/share/dict/words"
 
@@ -80,7 +80,8 @@ set incsearch
 set ignorecase
 set smartcase
 set showmatch
-"set shortmess-="fsnxtToOcC"
+set shortmess-="ilS"
+set shortmess+="scC"
 " Restore line position after exit
 autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
