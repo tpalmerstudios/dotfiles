@@ -11,7 +11,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'AnsiEsc.vim'
 Plugin 'luochen1990/rainbow'
 Plugin 'mileszs/ack.vim'
 Plugin 'flazz/vim-colorschemes'
@@ -21,14 +20,14 @@ filetype plugin indent on
 syntax on
 
 let g:rainbow_active = 1
-let g:ackprg = 'ag --nogroup --nocolor --column'
+let g:ackprg = 'ag --nogroup --column'
 let g:airline_powerline_fonts = 1
 let g:SuperTabDefaultCompletionType = "context"
 set background=dark
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
-colorscheme molokai
+colorscheme solarized8_dark_low
 let g:airline_theme='violet'
 let mapleader = ","
 map <space> /

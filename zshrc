@@ -1,14 +1,13 @@
-# If you come from bash you might have to change your $PATH.
-export PATH=$HOME/Public/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
+export PATH=$HOME/scripts:/usr/local/bin:$PATH
+export MANPATH="/usr/share/man:$MANPATH"
+export LANG=en_US.UTF-8
+export TERM=rxvt-unicode
+export EDITOR='vim'
+export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 export ZSH="$HOME/.oh-my-zsh"
+export ARCHFLAGS="-arch x86_64"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="robbyrussell"
 HYPHEN_INSENSITIVE="true"
 zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 zstyle ':omz:update' frequency 7
@@ -29,33 +28,10 @@ COMPLETION_WAITING_DOTS="true"
 
 HIST_STAMPS="mm/dd/yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git web-search copyfile copybuffer extract ag)
+plugins=(gitfast fancy-ctrl-z colored-man-pages ssh-agent tmux web-search copyfile copybuffer extract ag)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-export MANPATH="/usr/share/man:$MANPATH"
-export LANG=en_US.UTF-8
-export TERM=rxvt-unicode
-export EDITOR='vim'
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
 alias cls="clear"
