@@ -15,6 +15,7 @@ Plugin 'luochen1990/rainbow'
 Plugin 'mileszs/ack.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'ervandew/supertab'
+Plugin 'rootkiter/vim-hexedit'
 call vundle#end()
 filetype plugin indent on
 syntax on
