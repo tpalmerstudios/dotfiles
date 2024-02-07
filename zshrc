@@ -32,7 +32,7 @@ COMPLETION_WAITING_DOTS="true"
 
 HIST_STAMPS="mm/dd/yyyy"
 
-plugins=(git fancy-ctrl-z colored-man-pages ssh-agent copyfile copybuffer extract ag)
+plugins=(git fancy-ctrl-z solarized-man ssh-agent copyfile copybuffer extract ag)
 
 source $ZSH/oh-my-zsh.sh
 

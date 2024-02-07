@@ -31,7 +31,8 @@
 #----- PostScript output control
 
 # Set the default PostScript file or command.
-
+initialToolbarState	no
+initialSidebarState	no
 psFile				"|lpr"
 
 # Set the default PostScript paper size -- this can be letter, legal,

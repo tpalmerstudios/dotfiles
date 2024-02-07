@@ -84,7 +84,12 @@ autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
      \   exe "normal! g`\"" |
      \ endif
+augroup templates
+	autocmd BufNewFile *.hla 0r ~/.vim/templates/skeleton.hla
+augroup END
 
+autocmd BufNewFile,BufRead *.hla   set syntax=hla
+autocmd BufNewFile,BufRead *.hla   set filetype=hla
 set wildmenu
 set wildmode=list:longest
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx

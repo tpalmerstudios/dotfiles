@@ -46,7 +46,7 @@ Rxvt.boldItalicFont: xft:Hack:style=Bold Italic:size=12
 Rxvt.geometry: 173x41
 Rxvt*scrollTtyKeypress:  true
 Rxvt*scrollTtyOutput:  false
-Rxvt*fading:  30
+!!Rxvt*fading:  30
 URxvt*visualBell:  true
 Rxvt.letterSpace: -1
 Rxvt.lineSpace: 0
