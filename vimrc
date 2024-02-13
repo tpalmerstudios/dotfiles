@@ -1,4 +1,5 @@
 set nocompatible
+"let g:polyglot_disabled = ['markdown']
 set history=200
 set t_Co=256
 
@@ -14,8 +15,9 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'luochen1990/rainbow'
 Plugin 'mileszs/ack.vim'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'ervandew/supertab'
-Plugin 'rootkiter/vim-hexedit'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'ycm-core/YouCompleteMe'
+"Plugin 'rootkiter/vim-hexedit'
 call vundle#end()
 filetype plugin indent on
 syntax on
@@ -23,7 +25,6 @@ syntax on
 let g:rainbow_active = 1
 let g:ackprg = 'ag --nogroup --column'
 let g:airline_powerline_fonts = 1
-let g:SuperTabDefaultCompletionType = "context"
 set background=dark
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
@@ -44,7 +45,6 @@ set foldcolumn=1
 " Omnifunc
 set omnifunc=syntaxcomplete#Complete
 set completeopt+=longest,menuone,noinsert
-let g:SuperTabDefaultCompletionType = "context"
 set dictionary+="/usr/share/dict/words"
 
 " Menus can use arrows and enter
@@ -85,7 +85,11 @@ autocmd BufReadPost *
      \   exe "normal! g`\"" |
      \ endif
 augroup templates
+    autocmd!
 	autocmd BufNewFile *.hla 0r ~/.vim/templates/skeleton.hla
+    autocmd BufNewFile *.hla 1$pu='// Created On: '.strftime('%Y-%m-%d %H:%M:%S')
+    autocmd BufNewFile *.hla 2$pu='// Last Modified: '.strftime('%Y-%m-%d %H:%M:%S')
+    autocmd BufNewFile *.hla :normal 4j$
 augroup END
 
 autocmd BufNewFile,BufRead *.hla   set syntax=hla
