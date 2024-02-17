@@ -39,18 +39,19 @@
 
 !! URxvt Appearance
 Rxvt.title: Console
-Rxvt.font: xft:Hack:style=Regular:size=12
-Rxvt.boldFont: xft:Hack:style=Bold:size=12
-Rxvt.italicFont: xft:Hack:style=Italic:size=12
-Rxvt.boldItalicFont: xft:Hack:style=Bold Italic:size=12
-Rxvt.geometry: 173x41
+Rxvt.font: xft:Hack:style=Regular:size=13
+Rxvt.boldFont: xft:Hack:style=Bold:size=13
+Rxvt.italicFont: xft:Hack:style=Italic:size=13
+Rxvt.boldItalicFont: xft:Hack:style=Bold Italic:size=13
+!!Rxvt.geometry: 173x41
 Rxvt*scrollTtyKeypress:  true
 Rxvt*scrollTtyOutput:  false
-!!Rxvt*fading:  30
-URxvt*visualBell:  true
+Rxvt*fading:  5
+Rxvt*visualBell:  true
 Rxvt.letterSpace: -1
 Rxvt.lineSpace: 0
-Rxvt.internalBorder: 6
+Rxvt*borderColor: #2aa198
+Rxvt.internalBorder: 2
 Rxvt.cursorBlink: true
 Rxvt.cursorUnderline: false
 Rxvt.saveline: 2048
@@ -66,5 +67,7 @@ Rxvt.keysym.Control-Down: \033[1;5B
 Rxvt.keysym.Control-Right: \033[1;5C
 Rxvt.keysym.Control-Left: \033[1;5D
 Rxvt*print-pipe:  cat > $HOME/$(echo urxvt.dump.$(date +'%Y%M%d%H%m%S'))
+Rxvt.perl-ext-common: default,matcher
+Rxvt.url-launcher: /usr/bin/xdg-open
+Rxvt.matcher.button: 1
 Rxvt*perl-ext:
-Rxvt*perl-ext-common:

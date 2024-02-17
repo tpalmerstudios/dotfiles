@@ -43,4 +43,4 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 alias zcp='zmv -C'
 alias zln='zmv -L'
 alias hla='hla -lmelf_i386 -v'
-
+alias nasm='nasm -g -f elf64'
