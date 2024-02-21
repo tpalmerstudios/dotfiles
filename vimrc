@@ -1,4 +1,5 @@
 set nocompatible
+set encoding=utf-8
 "let g:polyglot_disabled = ['markdown']
 set history=200
 set t_Co=256
@@ -25,7 +26,7 @@ syntax on
 let g:rainbow_active = 1
 let g:ackprg = 'ag --nogroup --column'
 let g:airline_powerline_fonts = 1
-set background=dark
+"set background=dark
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
@@ -65,7 +66,6 @@ catch
 endtry
 
 set visualbell
-set encoding=utf-8
 set lazyredraw
 
 set showmode

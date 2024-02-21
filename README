@@ -1,4 +1,4 @@
-Things I want to Fix
+# Things I want to Fix
 ------------------------
 
 1. WeeChat connects to Android App
@@ -11,4 +11,6 @@ Things I want to Fix
 8. automate qBittorent downloads and seed
 9. distro switch
 10. Program something in depth
+
+![Sample of My Config](https://github.com/tpalmerstudios/dotfiles/dotfiles.png)
 

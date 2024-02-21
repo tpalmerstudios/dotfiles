@@ -1,4 +1,6 @@
 autoload -U zmv
+autoload -Uz compinit
+compinit
 
 export PATH=$HOME/scripts:/usr/local/bin:$PATH
 export MANPATH="/usr/share/man:$MANPATH"
@@ -6,6 +8,7 @@ export LANG=en_US.UTF-8
 export TERM=rxvt-unicode
 export TERMINAL=rxvt-unicode
 export EDITOR='vim'
+export VISUAL=$EDITOR
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 export ZSH="$HOME/.oh-my-zsh"
 export ARCHFLAGS="-arch x86_64"

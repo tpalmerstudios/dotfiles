@@ -51,6 +51,8 @@ Rxvt*visualBell:  true
 Rxvt.letterSpace: -1
 Rxvt.lineSpace: 0
 Rxvt*borderColor: #2aa198
+Rxvt*transparent: true
+Rxvt*shading: 15
 Rxvt.internalBorder: 2
 Rxvt.cursorBlink: true
 Rxvt.cursorUnderline: false
