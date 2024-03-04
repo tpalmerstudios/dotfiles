@@ -3,12 +3,14 @@ set encoding=utf-8
 "let g:polyglot_disabled = ['markdown']
 set history=200
 set t_Co=256
-
-set rtp+=~/.vim/bundle/Vundle.vim
+set mouse=a
 python3 from powerline.vim import setup as powerline_setup
 python3 powerline_setup()
 python3 del powerline_setup
+let g:airline_powerline_fonts = 1
+let g:airline_theme='violet'
 
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
@@ -25,13 +27,10 @@ syntax on
 
 let g:rainbow_active = 1
 let g:ackprg = 'ag --nogroup --column'
-let g:airline_powerline_fonts = 1
-"set background=dark
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 colorscheme solarized8_dark_low
-let g:airline_theme='violet'
 let mapleader = ","
 map <space> /
 
@@ -41,8 +40,9 @@ set noshowmode
 set number
 set cursorline
 set ruler
-set foldcolumn=1
-
+set foldcolumn=2
+set foldenable
+set foldmethod=manual
 " Omnifunc
 set omnifunc=syntaxcomplete#Complete
 set completeopt+=longest,menuone,noinsert
@@ -84,6 +84,9 @@ autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
      \   exe "normal! g`\"" |
      \ endif
+autocmd BufWinLeave * mkview
+autocmd BufWinEnter * silent loadview
+
 augroup templates
     autocmd!
 	autocmd BufNewFile *.hla 0r ~/.vim/templates/skeleton.hla

@@ -30,6 +30,9 @@ setopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 
 plugins=(git bgnotify fancy-ctrl-z solarized-man ssh-agent copyfile copybuffer extract ag)
+case $- in *i*)
+#    [ -z "$TMUX" ] && exec tmux
+esac
 
 alias zshconfig="vim ~/.zshrc"
 alias cls="clear"
