@@ -27,6 +27,8 @@ syntax on
 
 let g:rainbow_active = 1
 let g:ackprg = 'ag --nogroup --column'
+let g:ycm_extra_conf_globlist = ['projects/jail/*']
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif

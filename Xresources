@@ -1,75 +1,124 @@
 !! Colorscheme
 
-! special
-*.foreground:   	#93a1a1
-*.background:   	#002b36
-*.cursorColor:  	#93a1a1
+! Common
 
-! black
-*.color0:       #002b36
-*.color8:       #657b83
+#define S_yellow        #b58900
+#define S_orange        #cb4b16
+#define S_red           #dc322f
+#define S_magenta       #d33682
+#define S_violet        #6c71c4
+#define S_blue          #268bd2
+#define S_cyan          #2aa198
+#define S_green         #859900
 
-! red
-*.color1:       #dc322f
-*.color9:       #dc322f
 
-! green
-*.color2:       #859900
-*.color10:      #859900
+! Dark
 
-! yellow
-*.color3:       #b58900
-*.color11:      #b58900
+#define S_base03        #002b36
+#define S_base02        #073642
+#define S_base01        #586e75
+#define S_base00        #657b83
+#define S_base0         #839496
+#define S_base1         #93a1a1
+#define S_base2         #eee8d5
+#define S_base3         #fdf6e3
 
-! blue
-*.color4:       #268bd2
-*.color12:      #268bd2
 
-! magenta
-*.color5:       #6c71c4
-*.color13:      #6c71c4
+*background:              S_base03
+*foreground:              S_base0
+*fading:                  40
+*fadeColor:               S_base03
+*cursorColor:             S_base1
+*pointerColorBackground:  S_base01
+*pointerColorForeground:  S_base1
 
-! cyan
-*.color6:       #2aa198
-*.color14:      #2aa198
+*color0:                  S_base02
+*color1:                  S_red
+*color2:                  S_green
+*color3:                  S_yellow
+*color4:                  S_blue
+*color5:                  S_magenta
+*color6:                  S_cyan
+*color7:                  S_base2
+*color9:                  S_orange
+*color8:                  S_base03
+*color10:                 S_base01
+*color11:                 S_base00
+*color12:                 S_base0
+*color13:                 S_violet
+*color14:                 S_base1
+*color15:                 S_base3
 
-! white
-*.color7:       #93a1a1
-*.color15:      #fdf6e3
+!! special
+!*.foreground:   	#93a1a1
+!*.background:   	#002b36
+!*.cursorColor:  	#93a1a1
 
-!! URxvt Appearance
-Rxvt.title: Console
-Rxvt.font: xft:Hack:style=Regular:size=13
-Rxvt.boldFont: xft:Hack:style=Bold:size=13
-Rxvt.italicFont: xft:Hack:style=Italic:size=13
-Rxvt.boldItalicFont: xft:Hack:style=Bold Italic:size=13
-!!Rxvt.geometry: 173x41
-Rxvt*scrollTtyKeypress:  true
-Rxvt*scrollTtyOutput:  false
-Rxvt*fading:  5
-Rxvt*visualBell:  true
-Rxvt.letterSpace: -1
-Rxvt.lineSpace: 0
-Rxvt*borderColor: #2aa198
-Rxvt*transparent: true
-Rxvt*shading: 15
-Rxvt.internalBorder: 2
-Rxvt.cursorBlink: true
-Rxvt.cursorUnderline: false
-Rxvt.saveline: 2048
-Rxvt.scrollBar: false
-Rxvt.scrollBar_right: false
-Rxvt.urgentOnBell: true
-Rxvt.depth: 32
-Rxvt.iso14755: false
-Rxvt.keysym.Shift-Up: command:\033]720;1\007
-Rxvt.keysym.Shift-Down: command:\033]721;1\007
-Rxvt.keysym.Control-Up: \033[1;5A
-Rxvt.keysym.Control-Down: \033[1;5B
-Rxvt.keysym.Control-Right: \033[1;5C
-Rxvt.keysym.Control-Left: \033[1;5D
-Rxvt*print-pipe:  cat > $HOME/$(echo urxvt.dump.$(date +'%Y%M%d%H%m%S'))
-Rxvt.perl-ext-common: default,matcher
-Rxvt.url-launcher: /usr/bin/xdg-open
-Rxvt.matcher.button: 1
-Rxvt*perl-ext:
+!! black
+!*.color0:       #002b36
+!*.color8:       #657b83
+
+!! red
+!*.color1:       #dc322f
+!*.color9:       #dc322f
+
+!! green
+!*.color2:       #859900
+!*.color10:      #859900
+
+!! yellow
+!*.color3:       #b58900
+!*.color11:      #b58900
+
+!! blue
+!*.color4:       #268bd2
+!*.color12:      #268bd2
+
+!! magenta
+!*.color5:       #6c71c4
+!*.color13:      #6c71c4
+
+!! cyan
+!*.color6:       #2aa198
+!*.color14:      #2aa198
+
+!! white
+!*.color7:       #93a1a1
+!*.color15:      #fdf6e3
+
+!! U* Appearance
+*.title: Terminal
+*.font: xft:Hack:style=Regular:size=13
+*.boldFont: xft:Hack:style=Bold:size=13
+*.italicFont: xft:Hack:style=Italic:size=13
+*.boldItalicFont: xft:Hack:style=Bold Italic:size=13
+!!*.geometry: 173x41
+*.scrollTtyKeypress:  true
+*.scrollTtyOutput:  false
+*.fading:  5
+*.visualBell:  true
+*.letterSpace: -1
+*.lineSpace: 0
+*.borderColor: #2aa198
+!*.transparent: true
+!*.shading: 15
+*.internalBorder: 2
+*.cursorBlink: true
+*.cursorUnderline: false
+*.saveline: 2048
+*.scrollBar: false
+*.scrollBar_right: false
+*.urgentOnBell: true
+*.depth: 32
+*.iso14755: false
+*.keysym.Shift-Up: command:\033]720;1\007
+*.keysym.Shift-Down: command:\033]721;1\007
+*.keysym.Control-Up: \033[1;5A
+*.keysym.Control-Down: \033[1;5B
+*.keysym.Control-Right: \033[1;5C
+*.keysym.Control-Left: \033[1;5D
+*.print-pipe:  cat > $HOME/$(echo urxvt.dump.$(date +'%Y%M%d%H%m%S'))
+*.perl-ext-common: default,matcher
+*.url-launcher: /usr/bin/xdg-open
+*.matcher.button: 1
+*.perl-ext:

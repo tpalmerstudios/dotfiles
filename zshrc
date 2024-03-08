@@ -2,7 +2,7 @@ autoload -U zmv
 autoload -Uz compinit
 compinit
 
-export PATH=$HOME/scripts:/usr/local/bin:$PATH
+export PATH=$HOME/Public/bin:/usr/local/bin:$PATH
 export MANPATH="/usr/share/man:$MANPATH"
 export LANG=en_US.UTF-8
 export TERM=rxvt-unicode
@@ -12,8 +12,8 @@ export VISUAL=$EDITOR
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 export ZSH="$HOME/.oh-my-zsh"
 export ARCHFLAGS="-arch x86_64"
-export hlalib=/home/tpalmerstudios/usr/hla/hlalib/hlalib.a
-export hlainc=/home/tpalmerstudios/usr/hla/include
+export hlalib=/home/tpalmerstudios/Public/lib/hlalib.a
+export hlainc=/home/tpalmerstudios/Public/lib/hla/include
 
 ZSH_THEME="agnoster"
 HYPHEN_INSENSITIVE="true"
@@ -43,4 +43,4 @@ alias hla='hla -lmelf_i386 -v'
 alias nasm='nasm -g -f elf64'
 
 source $ZSH/oh-my-zsh.sh
-
+alias "sudo vim"="sudo -e"
