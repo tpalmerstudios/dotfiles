@@ -5,15 +5,15 @@ compinit
 export PATH=$HOME/Public/bin:/usr/local/bin:$PATH
 export MANPATH="/usr/share/man:$MANPATH"
 export LANG=en_US.UTF-8
-export TERM=rxvt-unicode
-export TERMINAL=rxvt-unicode
+export TERM=foot
+export TERMINAL=foot
 export EDITOR='vim'
 export VISUAL=$EDITOR
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 export ZSH="$HOME/.oh-my-zsh"
+export XDG_SCREENSHOTS_DIR="$HOME/Pictures/Screenshots"
+export PAGER="/usr/bin/most"
 export ARCHFLAGS="-arch x86_64"
-export hlalib=/home/tpalmerstudios/Public/lib/hlalib.a
-export hlainc=/home/tpalmerstudios/Public/lib/hla/include
 
 ZSH_THEME="agnoster"
 HYPHEN_INSENSITIVE="true"
@@ -29,7 +29,7 @@ setopt appendhistory
 setopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 
-plugins=(git bgnotify fancy-ctrl-z solarized-man ssh-agent copyfile copybuffer extract ag)
+plugins=(git bgnotify fancy-ctrl-z ssh-agent copyfile copybuffer extract)
 case $- in *i*)
 #    [ -z "$TMUX" ] && exec tmux
 esac
@@ -39,7 +39,6 @@ alias cls="clear"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias zcp='zmv -C'
 alias zln='zmv -L'
-alias hla='hla -lmelf_i386 -v'
 alias nasm='nasm -g -f elf64'
 
 source $ZSH/oh-my-zsh.sh

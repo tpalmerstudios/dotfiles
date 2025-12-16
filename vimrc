@@ -13,25 +13,30 @@ let g:airline_theme='violet'
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'luochen1990/rainbow'
-Plugin 'mileszs/ack.vim'
+Plugin 'rhysd/vim-clang-format'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'bkad/CamelCaseMotion'
+"Plugin 'luochen1990/rainbow'
+"Plugin 'mileszs/ack.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'sheerun/vim-polyglot'
-Plugin 'ycm-core/YouCompleteMe'
+"'Plugin 'ycm-core/YouCompleteMe'
 "Plugin 'rootkiter/vim-hexedit'
 call vundle#end()
 filetype plugin indent on
 syntax on
 
-let g:rainbow_active = 1
-let g:ackprg = 'ag --nogroup --column'
-let g:ycm_extra_conf_globlist = ['projects/jail/*']
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
+"let g:rainbow_active = 1
+"let g:ackprg = 'ag --nogroup --column'
+"let g:ycm_extra_conf_globlist = ['projects/jail/*']
+"let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+"if executable('ag')
+"  let g:ackprg = 'ag --vimgrep'
+"endif
 colorscheme solarized8_dark_low
 let mapleader = ","
 map <space> /
@@ -46,13 +51,13 @@ set foldcolumn=2
 set foldenable
 set foldmethod=manual
 " Omnifunc
-set omnifunc=syntaxcomplete#Complete
-set completeopt+=longest,menuone,noinsert
-set dictionary+="/usr/share/dict/words"
+"set omnifunc=syntaxcomplete#Complete
+"set completeopt+=longest,menuone,noinsert
+"set dictionary+="/usr/share/dict/words"
 
 " Menus can use arrows and enter
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 set shiftwidth=4
 set tabstop=4
@@ -60,7 +65,10 @@ set backspace=eol,start,indent
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
+set softtabstop=4
+set smarttab
 
+"inoremap <Backspace> V:s/^\s\{1,}//<CR>
 try
 	set undodir=~/.vim/undodir
 	set undofile
@@ -86,19 +94,9 @@ autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
      \   exe "normal! g`\"" |
      \ endif
-autocmd BufWinLeave * mkview
-autocmd BufWinEnter * silent loadview
+"autocmd BufWinLeave * mkview
+"autocmd BufWinEnter * loadview
 
-augroup templates
-    autocmd!
-	autocmd BufNewFile *.hla 0r ~/.vim/templates/skeleton.hla
-    autocmd BufNewFile *.hla 1$pu='// Created On: '.strftime('%Y-%m-%d %H:%M:%S')
-    autocmd BufNewFile *.hla 2$pu='// Last Modified: '.strftime('%Y-%m-%d %H:%M:%S')
-    autocmd BufNewFile *.hla :normal 4j$
-augroup END
-
-autocmd BufNewFile,BufRead *.hla   set syntax=hla
-autocmd BufNewFile,BufRead *.hla   set filetype=hla
 set wildmenu
 set wildmode=list:longest
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx

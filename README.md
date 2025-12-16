@@ -12,5 +12,35 @@
 9. distro switch
 10. Program something in depth
 
+Sway
+Waybar
+Foot
+Dunst
+nm-applet
+Vim
+Git
+Clang
+clang-format
+GCC
+Make
+CMake
+zsh
+tmux
+weechat
+gdb
+valgrind
+links
+xdg-utils
+grim
+slurp
+wl-clipboard
+ssh-agent
+firefox
+zathura
+rxvt-unicode
+copyq
+
+Required install, will work on the configs. Some dups. But my workflow is great
+
 ![Sample of My Config](https://github.com/tpalmerstudios/dotfiles/blob/main/dotfiles.png)
 

@@ -1,0 +1,9 @@
+[user]
+	name = Tim Palmer
+	email = tpalmerstudios@gmail.com
+[cored]
+	editor = vim
+
+[init]
+	defaultBranch = main
+	
