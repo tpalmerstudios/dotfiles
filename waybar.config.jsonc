@@ -2,7 +2,7 @@
 {
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 40, // Waybar height (to be removed for auto height)
+    "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "spacing": 2, // Gaps between modules (4px)
     // Choose the order of the modules
@@ -17,12 +17,13 @@
     "modules-right": [
         "idle_inhibitor",
         "pulseaudio",
-        //"network",
-        "power-profiles-daemon",
+        // "network",
+        // "power-profiles-daemon",
         "cpu",
         "memory",
         "backlight",
         "battery",
+		"custom/mako-recover",
         "tray"
     ],
     // Modules configuration
@@ -95,8 +96,8 @@
         }
     },
     "tray": {
-        "icon-size": 21,
-        "spacing": 10,
+        "icon-size": 25,
+        "spacing": 8,
         // "icons": {
         //   "blueman": "bluetooth",
         //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
@@ -109,7 +110,7 @@
     },
     "cpu": {
         "format": "{usage}% ",
-        "tooltip": false
+        "tooltip": true
     },
     "memory": {
         "format": "{}% "
@@ -129,8 +130,8 @@
     },
     "battery": {
         "states": {
-            // "good": 95,
-            "warning": 30,
+            "good": 75,
+            "warning": 40,
             "critical": 15
         },
         "format": "{capacity}% {icon}",
@@ -139,7 +140,7 @@
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
+        "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
     "battery#bat2": {
@@ -207,5 +208,14 @@
 			"suspend": "systemctl suspend",
 			"hibernate": "systemctl hibernate"
 		}
-    }
+    },
+	"mako": {
+		"format": "{icon} {count}",
+		"format-icons": {
+			"notification": "",
+			"none": ""
+		},
+		"on-click": "makoctl restore",
+		"on-click-right": "makoctl clear"
+	}
 }

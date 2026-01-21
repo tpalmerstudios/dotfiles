@@ -1,8 +1,11 @@
 autoload -U zmv
 autoload -Uz compinit
 compinit
+source /usr/share/fzf/shell/key-bindings.zsh
 
-export PATH=$HOME/Public/bin:/usr/local/bin:$PATH
+bindkey -v
+
+export PATH=$HOME/Public/bin:/usr/local/bin:$HOME/.cargo/bin:$PATH
 export MANPATH="/usr/share/man:$MANPATH"
 export LANG=en_US.UTF-8
 export TERM=foot
@@ -29,10 +32,10 @@ setopt appendhistory
 setopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 
-plugins=(git bgnotify fancy-ctrl-z ssh-agent copyfile copybuffer extract)
-case $- in *i*)
-#    [ -z "$TMUX" ] && exec tmux
-esac
+plugins=(git fzf fancy-ctrl-z zoxide ssh-agent copyfile copybuffer extract)
+weechat() {
+	exec bash -lc weechat
+}
 
 alias zshconfig="vim ~/.zshrc"
 alias cls="clear"
@@ -40,6 +43,7 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 alias zcp='zmv -C'
 alias zln='zmv -L'
 alias nasm='nasm -g -f elf64'
+alias clang='clang -g -std=c99 -Wall -Werror'
 
 source $ZSH/oh-my-zsh.sh
 alias "sudo vim"="sudo -e"

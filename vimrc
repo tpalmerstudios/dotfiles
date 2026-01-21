@@ -24,12 +24,14 @@ Plugin 'bkad/CamelCaseMotion'
 "Plugin 'mileszs/ack.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'sheerun/vim-polyglot'
-"'Plugin 'ycm-core/YouCompleteMe'
+Plugin 'ycm-core/YouCompleteMe'
 "Plugin 'rootkiter/vim-hexedit'
 call vundle#end()
 filetype plugin indent on
 syntax on
+let g:ycm_enable_semantic_highlighting=1
 
+let g:ycm_auto_triger=1
 "let g:rainbow_active = 1
 "let g:ackprg = 'ag --nogroup --column'
 "let g:ycm_extra_conf_globlist = ['projects/jail/*']
@@ -44,15 +46,14 @@ map <space> /
 set laststatus=2
 set showtabline=2
 set noshowmode
-set number
+set relativenumber
 set cursorline
 set ruler
-set foldcolumn=2
 set foldenable
-set foldmethod=manual
+set foldmethod=syntax
 " Omnifunc
 "set omnifunc=syntaxcomplete#Complete
-"set completeopt+=longest,menuone,noinsert
+set completeopt+=longest,menuone,noinsert
 "set dictionary+="/usr/share/dict/words"
 
 " Menus can use arrows and enter
