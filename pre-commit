@@ -1,0 +1,38 @@
+#!/bin/sh
+#
+if git rev-parse --verify HEAD >/dev/null 2>&1; then
+	against=HEAD
+else
+	against=$(git hash-object -t tree /dev/null)
+fi
+
+allownonascii=$(git config --type=bool hooks.allownonascii)
+
+if [ "$allownonascii" != "true" ] &&
+	test $(git diff-index --cached --name-only --diff-filter=A -z $against |
+		LC_ALL=C tr -d '[ -~]\0' | wc -c) != 0; then
+	cat <<\EOF
+EOF
+	exit 1
+fi
+
+CLANG=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(c|h)$' || true)
+if [ -n "$CLANG" ]; then
+	echo "$CLANG" | xargs clang-format -i
+	echo "$CLANG" | xargs git add
+fi
+SHELL=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.sh$' || true)
+if [ -n "$SHELL" ]; then
+	echo "$SHELL" | xargs shfmt -w
+	echo "$SHELL" | xargs shellcheck
+	echo "$SHELL" | xargs git add
+fi
+MARKDOWN=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.md$' || true)
+if [ -n "$MARKDOWN" ]; then
+	echo "$MARKDOWN" | xargs markdownlint --fix
+	echo "$MARKDOWN" | xargs npx textlint --fix
+	echo "$MARKDOWN" | xargs npx prettier --write
+	echo "$MARKDOWN" | xargs git add
+fi
+
+exec git diff-index --check --cached $against --
